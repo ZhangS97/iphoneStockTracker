@@ -10,11 +10,11 @@ urllib3.disable_warnings()
 products = 'https://reserve-prime.apple.com/CN/zh_CN/reserve/A/availability?iUP=N'
 availability_url = 'https://reserve-prime.apple.com/CN/zh_CN/reserve/A/availability.json'
 
-# R643 虹悦城
+# R643 虹悦城 在自取选店时可以看到店名
 # R493 南京艾尚天地
 # R703 玄武湖
 stores = [('R643', '虹悦城'), ('R493', '南京艾尚天地'), ('R703', '玄武湖')]
-# MLT93CH/A 13p 256 黑
+# MLT93CH/A 13p 256 黑 产品型号在购物车里可以通过链接看到
 # MLTE3CH/A 13p 256 蓝
 
 products = [
