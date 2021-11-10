@@ -1,5 +1,4 @@
 # coding: utf-8
-import os
 import time
 
 import requests
@@ -38,9 +37,9 @@ while True:
                 product_availability = availability['stores'][store[0]][product[0]]
                 unlocked_state = product_availability['availability']['unlocked']
                 if unlocked_state:
-                    print(i, '\t', store[1], '\t', product[1], '\t', product_availability)
-                    os.system('say ' + store[1] + product[1])
+                    print(time.localtime(time.time()), i, '\t', store[1], '\t', product[1], '\t', product_availability)
+                    # os.system('say ' + store[1] + product[1])
     except Exception as e:
-        print(i, '还没开始', e)
+        print(time.localtime(time.time()), i, '还没开始', e)
 
-    time.sleep(1)
+    time.sleep(10)
