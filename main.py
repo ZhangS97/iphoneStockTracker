@@ -1,4 +1,5 @@
 # coding: utf-8
+import json
 import os
 import time
 
@@ -8,15 +9,16 @@ import urllib3
 
 def wxPusher(content, summary):
     url = "http://wxpusher.zjiecode.com/api/send/message"
+    header = {'content-type': 'application/json'}
     data = {
-        "appToken": "AT_xxx",
+        "appToken": "",
         "content": content,
         "summary": summary,
         "contentType": 1,
         "uids": [
-            "UID_xxxx"
+            "UID_gNe6NMFN561KUBBIgSatzdmbSGma"
         ]}
-    res = requests.post(url=url, data=data)
+    res = requests.post(url=url, data=json.dumps(data), headers=header)
 
 
 urllib3.disable_warnings()
