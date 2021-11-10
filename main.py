@@ -1,8 +1,23 @@
 # coding: utf-8
+import os
 import time
 
 import requests
 import urllib3
+
+
+def wxPusher(content, summary):
+    url = "http://wxpusher.zjiecode.com/api/send/message"
+    data = {
+        "appToken": "AT_xxx",
+        "content": content,
+        "summary": summary,
+        "contentType": 1,
+        "uids": [
+            "UID_xxxx"
+        ]}
+    res = requests.post(url=url, data=data)
+
 
 urllib3.disable_warnings()
 
@@ -37,9 +52,10 @@ while True:
                 product_availability = availability['stores'][store[0]][product[0]]
                 unlocked_state = product_availability['availability']['unlocked']
                 if unlocked_state:
-                    print(time.localtime(time.time()), i, '\t', store[1], '\t', product[1], '\t', product_availability)
-                    # os.system('say ' + store[1] + product[1])
+                    wxPusher(store[1] + product[1], store[1] + product[1])
+                    print(i, '\t', store[1], '\t', product[1], '\t', product_availability)
+                    os.system('say ' + store[1] + product[1])
     except Exception as e:
-        print(time.localtime(time.time()), i, '还没开始', e)
+        print(i, '还没开始', e)
 
     time.sleep(10)
